@@ -44,27 +44,36 @@ int main(){
     return 0;
 }
 
-// Factorial
+ Factorial
 int main() {
     int x = 1;
-    for(int i=2;i<=11;i++){
-        cout << x << endl;
+    for(int i=1;i<=10;i++){
         x *= i;
+        cout << x << endl;
     }
 
     return 0;
 }
 
-// Palindrome broken
+// Palindrome
 int main() {
     string phrase;
-    int length;
+    int length, flag;
     cout << "Enter a phrase: "; cin >> phrase;
 
-    length =
+    length = phrase.size();
 
     for(int i=0;i<length;i++) {
+        if(phrase[i] != phrase[length-i-1]) {
+            flag = 1;
+            break;
+        }
+    }
 
+    if(flag) {
+        cout << phrase << " is not a palindrome" << endl;
+    } else {
+        cout << phrase << " is a palindrome" << endl;
     }
 
     return 0;
@@ -72,7 +81,47 @@ int main() {
 
 // Prime Number
 int main() {
+    int x, y,flag = 0;
+    cout << "Enter a number to check prime: "; cin >> x;
 
+    y = x/2;
+
+    for(int i=2;i<=y;i++) {
+        if(x % i == 0) {
+            cout << x << " is not a prime number";
+            flag = 1;
+            break;
+        }
+    }
+
+    if(flag == 0) {
+        cout << x << " is a prime number";
+    }
+
+    return 0;
+}
+
+// Averaging Values
+int main() {
+    int a, b, c, d, e, length, avg;
+    cout << "Enter 5 Integers: "; cin >> a >> b >> c >> d >> e;
+    int array[5] = {a, b, c, d, e};
+    length = sizeof(array)/4;
+    for (int i=0;i<=length-1;i++) {
+        avg += array[i];
+    }
+
+    cout << "Average Value is: " << avg/length << endl;
+
+    return 0;
+}
+
+// Reading Strings
+int main() {
+    int n;
+    cout << "Enter a positive int: "; cin >> n;
+
+    int arr [] = {n};
 
     return 0;
 }
