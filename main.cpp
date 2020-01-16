@@ -6,6 +6,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <string>
+#include <fstream>
 
 using namespace std;
 
@@ -44,7 +45,7 @@ int main(){
     return 0;
 }
 
- Factorial
+// Factorial
 int main() {
     int x = 1;
     for(int i=1;i<=10;i++){
@@ -103,9 +104,9 @@ int main() {
 
 // Averaging Values
 int main() {
-    int a, b, c, d, e, length, avg;
-    cout << "Enter 5 Integers: "; cin >> a >> b >> c >> d >> e;
-    int array[5] = {a, b, c, d, e};
+    int length;
+    double avg;
+    int array[] = {12, 3, 4 , 64, 23, 3, 74};
     length = sizeof(array)/4;
     for (int i=0;i<=length-1;i++) {
         avg += array[i];
@@ -118,10 +119,18 @@ int main() {
 
 // Reading Strings
 int main() {
-    int n;
-    cout << "Enter a positive int: "; cin >> n;
+    int x;
+    string* wordList;
+    cout << "Enter the number of words to process: "; cin >> x;
 
-    int arr [] = {n};
+    wordList = new string[x];
+
+    ifstream fin("input.n");
+
+    for(int i=0; i<x;i++) {fin >> wordList[i];}
+    for(int i=0; i<x;i++) {cout << wordList[i] << " ";}
+
+    delete[] wordList;
 
     return 0;
 }
