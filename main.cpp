@@ -10,13 +10,16 @@
 
 using namespace std;
 
-// Largest/Smallest Random Number
 int main() {
+// Largest/Smallest Random Number
+    cout << "<---Largest/Smallest Random Number--->" << endl;
+    // Ask user for 5 integers and assign them to variables
     int a, b, c, d, e;
     cout << "Enter 5 Integers: "; cin >> a >> b >> c >> d >> e;
     int array[5] = {a, b, c, d, e};
-    int largestValue, smallestValue = array[0];
+    int largestValue = array[0], smallestValue = array[0];
 
+    // Loops through the variables to find the smallest and largest variable
     for(int i=0;i<4;i++) {
         if(array[i+1] > largestValue) {
             largestValue = array[i+1];
@@ -24,7 +27,8 @@ int main() {
             smallestValue = array[i+1];
         }
     }
-    cout << "-------------------------" << endl;
+
+    // Print array and largest/smallest values
     for(int i=0;i<5;i++){
         cout << array[i] << endl;
     }
@@ -32,103 +36,131 @@ int main() {
     cout << "The smallest value is: " << int(smallestValue) << endl;
     cout << "-------------------------" << endl;
 
-    return 0;
-}
-
 // Positive ints of 7
-int main(){
-    int x = 0;
+    cout << "<---Positive integers of 7--->" << endl;
+
+    // Print the first 50 positive values of 7
+    int x1 = 0;
     for(int i=0;i<=50;i++) {
-        x += i * 7;
+        x1 += i * 7;
+        cout << x1 << endl;
     }
-    cout << x << endl;
-    return 0;
-}
+    cout << "-------------------------" << endl;
 
 // Factorial
-int main() {
-    int x = 1;
-    for(int i=1;i<=10;i++){
-        x *= i;
-        cout << x << endl;
-    }
+    cout << "<---10 Factorial--->" << endl;
 
-    return 0;
-}
+    // Print 10!
+    int x2 = 1;
+    for(int i=1;i<=10;i++){
+        x2 *= i;
+        cout << x2 << endl;
+    }
+    cout << "-------------------------" << endl;
 
 // Palindrome
-int main() {
+    cout << "<---Palindrome--->" << endl;
+
+    // Asks user for a phrase
     string phrase;
-    int length, flag;
+    int length1, flag1;
     cout << "Enter a phrase: "; cin >> phrase;
 
-    length = phrase.size();
+    length1 = phrase.size();
 
-    for(int i=0;i<length;i++) {
-        if(phrase[i] != phrase[length-i-1]) {
-            flag = 1;
+    // Grabs the first and last value of the phrase and checks to see if they are the same, then loops in
+    for(int i=0;i<length1;i++) {
+        if(phrase[i] != phrase[length1-i-1]) {
+            flag1 = 1;
             break;
         }
     }
 
-    if(flag) {
+    // If a flag was triggered, the word is not a palindrome, otherwise it is
+    if(flag1) {
         cout << phrase << " is not a palindrome" << endl;
     } else {
         cout << phrase << " is a palindrome" << endl;
     }
-
-    return 0;
-}
+    cout << "-------------------------" << endl;
 
 // Prime Number
-int main() {
-    int x, y,flag = 0;
-    cout << "Enter a number to check prime: "; cin >> x;
+    cout << "<---Prime Number--->" << endl;
 
-    y = x/2;
+    // Asks for a number from the user
+    int x3, y3, flag2 = 0;
+    cout << "Enter a number to check prime: "; cin >> x3;
 
-    for(int i=2;i<=y;i++) {
-        if(x % i == 0) {
-            cout << x << " is not a prime number";
-            flag = 1;
+    y3 = x3/2;
+
+    // For loops check to see if the inputted number is prime using mod
+    for(int i=2;i<=y3;i++) {
+        if(x3 % i == 0) {
+            cout << x3 << " is a not prime number" << endl;
+            flag2 = 1;
             break;
         }
     }
 
-    if(flag == 0) {
-        cout << x << " is a prime number";
+    // If there was no flag then the value was prime
+    if(flag2 == 0) {
+        cout << x3 << " is a prime number" << endl;
     }
-
-    return 0;
-}
+    cout << "-------------------------" << endl;
 
 // Averaging Values
-int main() {
-    int length;
+    cout << "<---Averaging Values--->" << endl;
+
+    // Creates an initialized array of values to average
+    int length2;
     double avg;
-    int array[] = {12, 3, 4 , 64, 23, 3, 74};
-    length = sizeof(array)/4;
-    for (int i=0;i<=length-1;i++) {
-        avg += array[i];
+    int arr[] = {12, 3, 4 , 64, 23, 3, 74};
+    length2 = sizeof(arr)/4;
+
+    // adds every value to avg
+    for (int i=0;i<=length2-1;i++) {
+        avg += arr[i];
     }
 
-    cout << "Average Value is: " << avg/length << endl;
-
-    return 0;
-}
+    // prints out the average value of the values of the array
+    cout << "Average Value is: " << avg/length2 << endl;
+    cout << "-------------------------" << endl;
 
 // Reading Strings
-int main() {
-    int x;
+    cout << "<---Reading Strings--->" << endl;
+
+    // Asks user for the number of words to process
+    int x4;
     string* wordList;
-    cout << "Enter the number of words to process: "; cin >> x;
+    string longestWord;
+    cout << "Enter the number of words to process: "; cin >> x4;
 
-    wordList = new string[x];
+    wordList = new string[x4];
 
+    // Grabs the text file to read from
     ifstream fin("input.n");
 
-    for(int i=0; i<x;i++) {fin >> wordList[i];}
-    for(int i=0; i<x;i++) {cout << wordList[i] << " ";}
+    if(!fin) {
+        cerr << "File not found" << endl;
+        exit(2);
+    }
+
+    // Prints off all the words from the words to process value
+    for(int i=0; i<x4;i++) {fin >> wordList[i];}
+    for(int i=0; i<x4;i++) {cout << wordList[i] << " ";}
+    cout<<endl;
+
+    // Finds and displays the largest word from the words displayed.
+    longestWord = wordList[0];
+    for(int i=0; i<x4; i++) {
+        if(wordList[i + 1].size() > longestWord.size()){
+            longestWord = wordList[i+1];
+        }
+    }
+
+    cout << "The Longest Word Is: " << longestWord << endl;
+
+    cout << "-------------------------" << endl;
 
     delete[] wordList;
 
