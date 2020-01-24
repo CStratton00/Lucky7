@@ -63,7 +63,7 @@ int main() {
 
     // Asks user for a phrase
     string phrase;
-    int length1, flag1;
+    int length1, flag1 = 0;
     cout << "Enter a phrase: "; cin >> phrase;
 
     length1 = phrase.size();
